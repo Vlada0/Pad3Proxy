@@ -59,7 +59,7 @@ namespace Proxy.Middleware
 
 						}
 						_loadBalancer.DecrementRequestCount(targetUri.OriginalString
-							.Substring(0, targetUri.OriginalString.IndexOf("/api")));
+							.Substring(0, targetUri.OriginalString.IndexOf("/api/")));
 						await ProcessResponseContent(context, responseMessage);
 					}
 
