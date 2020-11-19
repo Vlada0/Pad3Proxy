@@ -28,12 +28,12 @@ namespace Proxy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           /* services.AddDistributedRedisCache(options =>
+            services.AddDistributedRedisCache(options =>
             {
-                options.Configuration = "127.0.0.1:6379";
+                options.Configuration = "pad3.redis.cache.windows.net:6380,password=9qPvXvBdYYLRyjLODI1ekrTVUT2GB01tUCMj4ISwJS0=,ssl=True,abortConnect=False";
 
-                options.InstanceName = "RedisCache";
-            });*/
+               // options.InstanceName = "pad";
+            });
 
             var appSettingsSection = Configuration.GetSection("LoadBalancingSettings");
             services.Configure<LoadBalancingSettings>(appSettingsSection);
@@ -41,7 +41,7 @@ namespace Proxy
             var appSettings = appSettingsSection.Get<LoadBalancingSettings>();
 
             services.AddSingleton<ILoadBalancer, LoadBalancer>();
-           // services.AddSingleton<ICache, RedisCache>();
+            services.AddSingleton<ICache, RedisCache>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
