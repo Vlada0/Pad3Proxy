@@ -30,7 +30,7 @@ namespace Proxy
         {
             services.AddDistributedRedisCache(options =>
             {
-                options.Configuration = "pad3.redis.cache.windows.net:6380,password=9qPvXvBdYYLRyjLODI1ekrTVUT2GB01tUCMj4ISwJS0=,ssl=True,abortConnect=False";
+                options.Configuration = "padvl.redis.cache.windows.net:6380,password=bVtdmhPaMWJsxd6qmcsRMGcfdkNjfVkgFphiguKT4fA=,ssl=True,abortConnect=False";
 
                // options.InstanceName = "pad";
             });
