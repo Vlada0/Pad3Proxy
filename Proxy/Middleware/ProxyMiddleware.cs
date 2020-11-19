@@ -14,13 +14,13 @@ namespace Proxy.Middleware
 	{
 		private readonly HttpClient _httpClient;
 		private readonly RequestDelegate _nextMiddleware;
-		private readonly ICache _redisCache;
+		//private readonly ICache _redisCache;
 
 		private readonly ILoadBalancer _loadBalancer;
-		public ProxyMiddleware(RequestDelegate nextMiddleware, ICache redisCache, ILoadBalancer loadBalancer)
+		public ProxyMiddleware(RequestDelegate nextMiddleware,  ILoadBalancer loadBalancer)
 		{
 			this._nextMiddleware = nextMiddleware;
-			this._redisCache = redisCache;
+			//this._redisCache = redisCache;
 			this._loadBalancer = loadBalancer;
 			_httpClient = new HttpClient();
 		}
@@ -28,8 +28,8 @@ namespace Proxy.Middleware
 		public async Task Invoke(HttpContext context)
 		{
 
-			if (!(await _redisCache.ProcessCachedResponsePossibility(context)))
-			{
+			//if (!(await _redisCache.ProcessCachedResponsePossibility(context)))
+			//{
 
 				var targetUri = BuildTargetUri(context.Request);
 
@@ -48,13 +48,13 @@ namespace Proxy.Middleware
 						{
 							StringValues type;
 
-							if (context.Request.Headers.TryGetValue("Accept", out type))
+							/*if (context.Request.Headers.TryGetValue("Accept", out type))
 							{
 								var key = context.Request.Path + type.First();
 								var content = await responseMessage.Content.ReadAsByteArrayAsync();
 
 								await _redisCache.WriteToCache(key, content);
-							}
+							}*/
 
 
 						}
@@ -67,7 +67,7 @@ namespace Proxy.Middleware
 				}
 
 				await _nextMiddleware(context);
-			}
+			//}
 		}
 
 

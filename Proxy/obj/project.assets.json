@@ -5959,11 +5959,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vlada\\source\\repos\\Proxy\\Proxy\\Proxy.csproj",
+      "projectUniqueName": "D:\\Project\\Proxy\\Proxy\\Proxy.csproj",
       "projectName": "Proxy",
-      "projectPath": "C:\\Users\\Vlada\\source\\repos\\Proxy\\Proxy\\Proxy.csproj",
+      "projectPath": "D:\\Project\\Proxy\\Proxy\\Proxy.csproj",
       "packagesPath": "C:\\Users\\Vlada\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vlada\\source\\repos\\Proxy\\Proxy\\obj\\",
+      "outputPath": "D:\\Project\\Proxy\\Proxy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vlada\\AppData\\Roaming\\NuGet\\NuGet.Config",

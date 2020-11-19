@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DJOx8sElKTcUwFNR9u6ojA1S5xPYnoIWyHs4x6ILDsrFioYxFkNnAGb7wfrWgN6Jd49x0YXh8dB3Efew2gkxBA==",
+  "dgSpecHash": "k9sKLyd2WtNNipVuzbWCIx1ftaalBW7bxeu4bD6xoeK8FZMGT/P+yBNrb4tf0x4+VjZnUDDSsu2nDVp1ZLGm3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vlada\\source\\repos\\Proxy\\Proxy\\Proxy.csproj",
+  "projectFilePath": "D:\\Project\\Proxy\\Proxy\\Proxy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vlada\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\2.2.0\\microsoft.extensions.caching.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Vlada\\.nuget\\packages\\microsoft.extensions.caching.redis\\2.2.0\\microsoft.extensions.caching.redis.2.2.0.nupkg.sha512",
