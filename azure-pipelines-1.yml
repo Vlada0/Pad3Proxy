@@ -20,7 +20,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: false
-    projects: 'Proxy/Proxy/.csproj'
+    projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
 - task: PublishBuildArtifacts@1
