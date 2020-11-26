@@ -11,5 +11,7 @@ namespace Proxy.Cache
         public Task<bool> ProcessCachedResponsePossibility(HttpContext context);
 
         public Task WriteToCache(string key, byte[] content);
+
+        public Task WriteToCache(string key, string content);
     }
 }

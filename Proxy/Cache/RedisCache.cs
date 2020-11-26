@@ -30,11 +30,16 @@ namespace Proxy.Cache
             {
                 return false;
             }
-            var cachedRequest = redisCache.GetString(context.Request.Path + type.First());
-            if (!string.IsNullOrEmpty(cachedRequest))
+            var cachedRequest = await redisCache.GetAsync(context.Request.Path + type.First());
+
+            if ((cachedRequest != null) && cachedRequest.Length != 0)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.AlreadyReported;
-                await context.Response.WriteAsync(cachedRequest, Encoding.UTF8);
+                context.Response.ContentType = type.First();
+                if (type.First().Contains("json")) {
+                    context.Response.Headers.Add("Content-Encoding", "gzip");
+                }
+                await context.Response.Body.WriteAsync(cachedRequest);
 
                 return true;
             }
@@ -44,7 +49,16 @@ namespace Proxy.Cache
 
         public async Task WriteToCache(string key, byte[] content)
         {
+
             await redisCache.SetAsync(key, content, new DistributedCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1)
+            });
+        }
+
+        public async Task WriteToCache(string key, string content)
+        {
+            await redisCache.SetStringAsync(key, content, new DistributedCacheEntryOptions
             {
                 AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1)
             });

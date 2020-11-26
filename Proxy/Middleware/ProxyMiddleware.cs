@@ -4,6 +4,7 @@ using Proxy.Cache;
 using Proxy.LoadBalancing;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -53,6 +54,7 @@ namespace Proxy.Middleware
 								var key = context.Request.Path + type.First();
 								var content = await responseMessage.Content.ReadAsByteArrayAsync();
 
+								
 								await _redisCache.WriteToCache(key, content);
 							}
 
